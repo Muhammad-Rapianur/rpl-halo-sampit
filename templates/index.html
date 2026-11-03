@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halo Sampit</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .kotak { max-width: 450px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        .pesan-salam { margin-top: 15px; color: #1a5276; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="kotak">
+        <!-- Judul halaman -->
+        <h1>Halo Sampit!</h1>
+        
+        <!-- Menampilkan waktu server -->
+        <p><strong>Waktu Server:</strong> {{ waktu_server }}</p>
+
+        <!-- Formulir pengiriman nama tanpa JavaScript -->
+        <form method="POST" action="/">
+            <label for="nama">Masukkan Nama:</label><br><br>
+            <input type="text" id="nama" name="nama" required placeholder="Contoh: Muhammad Rapianur">
+            <button type="submit">Kirim</button>
+        </form>
+
+        <!-- Menampilkan salam jika formulir sudah dikirim -->
+        <!-- Jinja2 otomatis melakukan auto-escape sehingga aman dari serangan XSS -->
+        {% if nama %}
+            <p class="pesan-salam">Halo, {{ nama }}!</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+
