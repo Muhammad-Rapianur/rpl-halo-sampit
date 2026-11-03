@@ -24,11 +24,16 @@ def index():
 
     # Memeriksa apakah ada data form yang dikirim pengguna via POST
     if request.method == "POST":
-        # Mengambil input nama dan memangkas spasi kosong di awal/akhir
-        nama = request.form.get("nama", "").strip()
+        # Mengambil input nama, memangkas spasi kosong, dan membatasi maksimal 50 karakter di server
+        nama = request.form.get("nama", "").strip()[:50]
 
     # Mengirim data waktu, salam, dan nama ke template HTML
     return render_template("index.html", waktu_server=waktu_server, nama=nama, salam=salam)
+
+# Rute halaman tentang (Latihan Mandiri 1)
+@app.route("/tentang")
+def tentang():
+    return render_template("tentang.html")
 
 if __name__ == "__main__":
     # Menjalankan server aplikasi di http://127.0.0.1:5000/ (localhost)

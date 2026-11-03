@@ -8,6 +8,9 @@
         body { font-family: Arial, sans-serif; margin: 40px; }
         .kotak { max-width: 450px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
         .pesan-salam { margin-top: 15px; color: #1a5276; font-weight: bold; }
+        .navigasi { margin-top: 20px; font-size: 0.9em; }
+        a { color: #1a5276; text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -21,7 +24,7 @@
         <!-- Formulir pengiriman nama tanpa JavaScript -->
         <form method="POST" action="/">
             <label for="nama">Masukkan Nama:</label><br><br>
-            <input type="text" id="nama" name="nama" required placeholder="Contoh: Muhammad Rapianur">
+            <input type="text" id="nama" name="nama" required maxlength="50" placeholder="Contoh: Muhammad Rapianur">
             <button type="submit">Kirim</button>
         </form>
 
@@ -30,6 +33,11 @@
         {% if nama %}
             <p class="pesan-salam">Halo, {{ nama }}!</p>
         {% endif %}
+
+        <div class="navigasi">
+            <hr>
+            <a href="/tentang">Lihat Halaman Tentang →</a>
+        </div>
     </div>
 </body>
 </html>
